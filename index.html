@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vape Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
+    <link rel="apple-touch-icon" href="icon-192.png">
+</head>
+<body>
+
+    <div id="age-gate" class="modal active">
+        <div class="modal-content">
+            <h1>AGE VERIFICATION</h1>
+            <p>You must be 21+ to enter this site.</p>
+            <button onclick="enterSite()">I am 21+</button>
+            <button onclick="leaveSite()" class="secondary-btn">Exit</button>
+        </div>
+    </div>
+
+    <header>
+        <div class="logo">VAPE<span class="red-text">LORD</span></div>
+        <div class="cart-icon" onclick="toggleCart()">
+            🛒 <span id="cart-count">0</span>
+        </div>
+    </header>
+
+    <main id="product-list">
+        </main>
+
+    <div id="cart-modal" class="cart-sidebar">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button onclick="toggleCart()" class="close-btn">X</button>
+        </div>
+        <div id="cart-items">
+            <p class="empty-msg">Cart is empty</p>
+        </div>
+        <div class="cart-footer">
+            <div class="total">Total: $<span id="cart-total">0.00</span></div>
+            
+            <h3>Payment Method</h3>
+            <select id="payment-method">
+                <option value="CashApp">CashApp</option>
+                <option value="Chime">Chime</option>
+                <option value="PayPal">PayPal</option>
+                <option value="Cash">Cash on Delivery</option>
+            </select>
+
+            <button onclick="checkout()" class="checkout-btn">TEXT ORDER TO SELLER</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Register Service Worker for PWA
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
+</body>
+</html>
